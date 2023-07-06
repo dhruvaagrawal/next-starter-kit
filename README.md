@@ -1,11 +1,11 @@
-# next-template
+# Next.js Starter Kit
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+This is a starter-kit, built upon the implementation by `@shadcn`, with changes custom to my workspace.
 
 ## Usage
 
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+npx create-next-app -e https://github.com/dhruvaagrawal/next-starter-kit
 ```
 
 ## Features
@@ -16,7 +16,5 @@ npx create-next-app -e https://github.com/shadcn/next-template
 - Icons from [Lucide](https://lucide.dev)
 - Dark mode with `next-themes`
 - Tailwind CSS class sorting, merging and linting.
-
-## License
-
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+- UI components with the `ui.shadcn.com` component library.
+- Authentication with NextAuth.js.

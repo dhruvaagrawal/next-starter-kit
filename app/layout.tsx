@@ -4,9 +4,8 @@ import { Metadata } from "next"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/site-header"
+import Providers from "@/components/Providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: {
@@ -19,17 +18,17 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/assets/pokemon-symbol.png",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
 }
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -40,13 +39,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Providers>
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
             <TailwindIndicator />
-          </ThemeProvider>
+          </Providers>
         </body>
       </html>
     </>
