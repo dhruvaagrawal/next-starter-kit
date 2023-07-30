@@ -8,11 +8,7 @@ export const siteConfig = {
     {
       title: "Home",
       href: "/",
+      subNav: [],
     },
   ],
-  links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
-  },
 }
