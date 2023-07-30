@@ -15,24 +15,3 @@ export type NavItem = {
 }
 
 export type MainNavItem = NavItem
-
-export type SidebarNavItem = {
-  title: string
-  disabled?: boolean
-  external?: boolean
-  icon?: keyof typeof Icons
-} & (
-  | {
-      href: string
-      items?: never
-    }
-  | {
-      href?: string
-      items: never
-    }
-)
-
-export interface AdminConfig {
-  mainNav: MainNavItem[]
-  sidebarNav: SidebarNavItem[]
-}
