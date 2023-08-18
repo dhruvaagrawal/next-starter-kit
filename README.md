@@ -1,7 +1,7 @@
 # Next.js Starter Kit
 
 This is a starter-kit, built upon the implementation by `@shadcn`, with changes custom to my workspace.
-This does not contain an ORM like Prisma or Drizzle since this is free-to-use and may changes based onrequirements.
+This does not contain an ORM like Prisma or Drizzle since this is free-to-use and may changes based on requirements.
 
 ```bash
 npx create-next-app -e https://github.com/dhruvaagrawal/next-starter-kit
