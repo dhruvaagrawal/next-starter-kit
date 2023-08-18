@@ -2,6 +2,7 @@
 
 import { FC, HTMLAttributes } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
@@ -14,21 +15,30 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Icons } from "@/components/icons"
+
+import { Icons } from "./icons"
 
 interface MainNavProps extends HTMLAttributes<HTMLDivElement> {
   items?: NavItem[]
 }
 
 const MainNav: FC<MainNavProps> = ({ items, className, ...props }) => {
+  const router = useRouter()
+
   return (
-    <div className={cn(className, "flex p-2 md:gap-10")} {...props}>
+    <div
+      className={cn("hidden items-center gap-2 md:flex md:gap-8", className)}
+      {...props}
+    >
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-[28px] w-[30px]" />
+        <Icons.logo
+          className="h-[28px] w-[30px]"
+          onClick={() => router.push("/")}
+        />
       </Link>
       {items?.length ? (
         <NavigationMenu className="flex">
-          <NavigationMenuList className="gap-12">
+          <NavigationMenuList className="gap-2 md:gap-4">
             {items?.map(
               ({ href, title, subNav }) =>
                 href && (
@@ -37,23 +47,23 @@ const MainNav: FC<MainNavProps> = ({ items, className, ...props }) => {
                       {subNav.length > 0 ? (
                         <div>
                           <NavigationMenuTrigger
-                            className="px-0 text-lg font-normal"
+                            className="h-auto p-2 text-xs font-normal sm:text-sm md:text-base xl:text-lg"
                             icon={false}
                           >
                             {title}
                           </NavigationMenuTrigger>
-                          <NavigationMenuContent className="bg-solid-white">
-                            <ul className="grid w-96 p-4">
+                          <NavigationMenuContent>
+                            <ul className="grid w-96 p-2">
                               {subNav.map(({ title, href, description }) => (
                                 <ListItem
                                   key={title}
                                   title={title}
                                   href={href}
-                                  className="hover:bg-input-secondary p-4"
+                                  className="p-4 hover:bg-secondary"
                                 >
-                                  <p className="text-xs text-gray-500">
+                                  <span className="text-xs text-muted-foreground">
                                     {description}
-                                  </p>
+                                  </span>
                                 </ListItem>
                               ))}
                             </ul>
@@ -61,7 +71,7 @@ const MainNav: FC<MainNavProps> = ({ items, className, ...props }) => {
                         </div>
                       ) : (
                         <Link href={href} legacyBehavior passHref>
-                          <NavigationMenuLink className="px-0 text-lg font-normal">
+                          <NavigationMenuLink className="p-2 text-sm font-normal md:text-base xl:text-lg">
                             {title}
                           </NavigationMenuLink>
                         </Link>
