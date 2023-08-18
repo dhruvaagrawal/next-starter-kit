@@ -1,4 +1,6 @@
 import {
+  ExitIcon,
+  IdCardIcon,
   LayersIcon,
   MoonIcon,
   StackIcon,
@@ -12,4 +14,6 @@ export const Icons = {
   twitter: TwitterLogoIcon,
   logo: StackIcon,
   mobileNav: LayersIcon,
+  profile: IdCardIcon,
+  signOut: ExitIcon,
 }
