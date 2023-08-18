@@ -1,7 +1,9 @@
 import {
   ExitIcon,
   IdCardIcon,
+  LaptopIcon,
   LayersIcon,
+  MagnifyingGlassIcon,
   MoonIcon,
   StackIcon,
   SunIcon,
@@ -16,4 +18,6 @@ export const Icons = {
   mobileNav: LayersIcon,
   profile: IdCardIcon,
   signOut: ExitIcon,
+  laptop: LaptopIcon,
+  search: MagnifyingGlassIcon,
 }

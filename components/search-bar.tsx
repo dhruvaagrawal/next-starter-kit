@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react"
 import { DialogProps } from "@radix-ui/react-alert-dialog"
-import { LaptopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
@@ -44,17 +43,17 @@ export function Searchbar({ ...props }: DialogProps) {
       <Button
         variant="ghost"
         className={cn(
-          "relative w-full h-[44px] justify-between text-sm text-muted-foreground border-transparent bg-input-secondary hover:bg-input-secondary py-2 px-4"
+          "relative h-[44px] w-full justify-between border-transparent bg-secondary px-4 py-2 text-sm text-muted-foreground"
         )}
         onClick={() => setOpen(true)}
         {...props}
       >
-        <span className="flex items-center justify-start font-normal space-x-2">
-          <Icons.search className="w-4 h-4" />
+        <span className="flex items-center justify-start space-x-2 font-normal">
+          <Icons.search className="h-4 w-4" />
           <p className="text-sm">Search</p>
         </span>
-        <div className="flex justify-end">
-          <kbd className="flex pointer-events-none select-none gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
+        <div className="hidden justify-end md:flex">
+          <kbd className="pointer-events-none flex select-none gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
             <span className="text-sm">⌘</span>K
           </kbd>
         </div>
@@ -65,16 +64,25 @@ export function Searchbar({ ...props }: DialogProps) {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandSeparator />
           <CommandGroup heading="Theme">
-            <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
-              <SunIcon className="w-4 h-4 mr-2" />
+            <CommandItem
+              className="flex cursor-pointer gap-2"
+              onSelect={() => runCommand(() => setTheme("light"))}
+            >
+              <Icons.sun className="h-4 w-4" />
               Light
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
-              <MoonIcon className="w-4 h-4 mr-2" />
+            <CommandItem
+              className="flex cursor-pointer gap-2"
+              onSelect={() => runCommand(() => setTheme("dark"))}
+            >
+              <Icons.moon className="h-4 w-4" />
               Dark
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
-              <LaptopIcon className="w-4 h-4 mr-2" />
+            <CommandItem
+              className="flex cursor-pointer gap-2"
+              onSelect={() => runCommand(() => setTheme("system"))}
+            >
+              <Icons.laptop className="h-4 w-4" />
               System
             </CommandItem>
           </CommandGroup>
