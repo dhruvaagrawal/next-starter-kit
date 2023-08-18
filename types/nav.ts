@@ -1,5 +1,3 @@
-import { Icons } from "@/components/icons"
-
 type SubNavItem = {
   title: string
   href: string
