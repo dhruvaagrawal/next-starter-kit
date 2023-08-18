@@ -1,8 +1,6 @@
 "use client"
 
 import { FC, useState } from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
 import { Button } from "@/components/ui/button"
@@ -17,7 +15,6 @@ interface MobileNavProps {
 
 const MobileNav: FC<MobileNavProps> = ({ items }) => {
   const [open, setOpen] = useState(false)
-  const router = useRouter()
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -36,14 +33,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
           className="flex items-center gap-2"
           onOpenChange={setOpen}
         >
-          <Image
-            width={40}
-            height={40}
-            src="/assets/logo.png"
-            className="cursor-pointer"
-            alt="The Humble Savant"
-            onClick={() => router.push("/")}
-          />
+          <Icons.logo className="h-7 w-7" />
         </MobileLink>
         <ScrollArea>
           <div className="flex flex-col gap-4">

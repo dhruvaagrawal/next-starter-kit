@@ -31,10 +31,7 @@ const MainNav: FC<MainNavProps> = ({ items, className, ...props }) => {
       {...props}
     >
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo
-          className="h-[28px] w-[30px]"
-          onClick={() => router.push("/")}
-        />
+        <Icons.logo className="h-7 w-7" onClick={() => router.push("/")} />
       </Link>
       {items?.length ? (
         <NavigationMenu className="flex">
