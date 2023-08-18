@@ -1,4 +1,5 @@
 import {
+  LayersIcon,
   MoonIcon,
   StackIcon,
   SunIcon,
@@ -10,4 +11,5 @@ export const Icons = {
   moon: MoonIcon,
   twitter: TwitterLogoIcon,
   logo: StackIcon,
+  mobileNav: LayersIcon,
 }
